@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: trade-opportunities-api
+    env: python
+    pythonVersion: "3.10.13"
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: SECRET_KEY
+        value: your-secret-key-change-this-in-production
+      - key: RATE_LIMIT_REQUESTS
+        value: 10
+      - key: RATE_LIMIT_PERIOD
+        value: 60
+      - key: GEMINI_API_KEY
+        value: 
